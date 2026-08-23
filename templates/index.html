@@ -5,8 +5,8 @@
     <input type = "text" name = "contact_email" placeholder = "Email">
     <button type = "submit" > Add Contact </button>
 </form>
-<ul>
+<ul>s
     {% for name in contacts %}
-        <li>{{ name }}</li>
+        <li> Name: {{ name }}, Phone: {{contacts[name]['phone']}}, Email: {{contacts[name]['email']}}</li>
     {% endfor %}
 </ul>
