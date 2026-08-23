@@ -1,12 +1,21 @@
-<h1>Phone Book</h1>
-<form action = "/add" method = "POST">
-    <input type = "text" name = "contact_name" placeholder = "Name">
-    <input type = "text" name = "contact_phone" placeholder = "Phone">
-    <input type = "text" name = "contact_email" placeholder = "Email">
-    <button type = "submit" > Add Contact </button>
-</form>
-<ul>s
-    {% for name in contacts %}
-        <li> Name: {{ name }}, Phone: {{contacts[name]['phone']}}, Email: {{contacts[name]['email']}}</li>
-    {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}">
+</head>
+<body>
+    <h1>Phone Book</h1>
+    <form action = "/add" method = "POST">
+        <input type = "text" name = "contact_name" placeholder = "Name">
+        <input type = "text" name = "contact_phone" placeholder = "Phone">
+        <input type = "text" name = "contact_email" placeholder = "Email">
+        <button type = "submit" > Add Contact </button>
+        </form>
+    <ul>
+        {% for name in contacts %}
+            <li> Name: {{ name }}, Phone: {{contacts[name]['phone']}}, Email: {{contacts[name]['email']}}</li>
+        {% endfor %}
+    </ul>
+    </body>
+    </html>
+
