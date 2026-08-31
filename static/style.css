@@ -2,3 +2,7 @@ h1 {
     color: darkblue;
     font-family: Arial, sans-serif;
 }
+
+li form {
+    display: inline;
+}

@@ -17,5 +17,15 @@ def add():
 
     return redirect("/")
 
+@app.route("/delete", methods = ["POST"])
+def delete():
+    contactName = request.form["contact_name"]
+    
+    if contactName in contacts:
+        del contacts[contactName]
+    
+    return redirect("/")
+
+
 if __name__ == "__main__":
     app.run(debug = True, port = 5001)

@@ -11,9 +11,15 @@
         <input type = "text" name = "contact_email" placeholder = "Email">
         <button type = "submit" > Add Contact </button>
         </form>
+
     <ul>
         {% for name in contacts %}
-            <li> Name: {{ name }}, Phone: {{contacts[name]['phone']}}, Email: {{contacts[name]['email']}}</li>
+            <li> Name: {{ name }}, Phone: {{contacts[name]['phone']}}, Email: {{contacts[name]['email']}}
+            <form action = "/delete" method = "POST">
+                <input type = "hidden" name = "contact_name" value = "{{ name }}">
+                <button type = "submit" > Delete </button>
+            </form>
+            </li>
         {% endfor %}
     </ul>
     </body>
