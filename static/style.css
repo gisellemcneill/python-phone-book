@@ -29,6 +29,14 @@ li form {
     display: inline;
 }
 
+li{
+    list-style-type: none;
+    width: fit-content;
+    border-bottom: 1px dashed #472c17;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
 form{
     text-align: center;
 }
@@ -37,6 +45,14 @@ button{
     background-color:rgb(45, 67, 46);
     font-family: 'Quicksand', sans-serif;
     color: #F5ECD7;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color:rgb(77, 114, 79);
+    font-family: 'Quicksand', sans-serif;
+    color: #d7f5d7;
+    border-radius: 5px;
 }
 
 input, input::placeholder{
