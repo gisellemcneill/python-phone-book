@@ -1,8 +1,45 @@
+div{
+    max-width: 700px;
+    margin: 0 auto;
+    border: #435b43 15px groove;
+        margin-top: 70px;
+}
+
+body{
+    background-color: #F5ECD7;
+    color: #5b4f44;
+    font-family: 'Quicksand', sans-serif;
+    border:#403227 10px solid;
+        min-height: 100vh;
+}
 h1 {
-    color: darkblue;
-    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    text-align: center;
+    color: #472c17;
+    font-family: 'Chewy', sans-serif;
+}
+
+h2 {
+    text-align: center;
+    color: #472c17;
+    font-family: 'Chewy', sans-serif;
 }
 
 li form {
     display: inline;
+}
+
+form{
+    text-align: center;
+}
+
+button{
+    background-color:rgb(45, 67, 46);
+    font-family: 'Quicksand', sans-serif;
+    color: #F5ECD7;
+}
+
+input, input::placeholder{
+    font-family: 'Quicksand', sans-serif;
+    color:rgb(45, 67, 46);
 }

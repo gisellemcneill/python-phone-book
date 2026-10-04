@@ -1,35 +1,42 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}">
-    </head>
-    <body>
-        <h1>Phone Book</h1>
-            <form action = "/add" method = "POST">
-                <input type = "text" name = "contact_name" placeholder = "Name">
-                <input type = "text" name = "contact_phone" placeholder = "Phone">
-                <input type = "text" name = "contact_email" placeholder = "Email">
-                <button type = "submit" > Add Contact </button>
-            </form>
-
-            <ul>
-                {% for name in contacts %}
-                    <li> Name: {{ name }}, Phone: {{contacts[name]['phone']}}, Email: {{contacts[name]['email']}}
-                    <form action = "/delete" method = "POST">
-                        <input type = "hidden" name = "contact_name" value = "{{ name }}">
-                        <button type = "submit" > Delete </button>
-                    </form>
-                    </li>
-                {% endfor %}
-            </ul>
+<div class = "book">
+    <html>
+        <head>
+            <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}">
         
-        <h2>Search</h2>
-            <form action = "/search" method = "POST">
-                <input type = "text" name = "search_name" placeholder = "Name">
-                <button type = "submit"> Search Contact </button>
-                <p> {{resultMessage}} </p>
-            </form>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+        
+            <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+        </head>
+        <body>
+            <h1>Phone Book</h1>
+                <form action = "/add" method = "POST">
+                    <input type = "text" name = "contact_name" placeholder = "Name">
+                    <input type = "text" name = "contact_phone" placeholder = "Phone">
+                    <input type = "text" name = "contact_email" placeholder = "Email">
+                    <button type = "submit" > Add Contact </button>
+                </form>
 
-    </body>
-</html>
+                <ul>
+                    {% for name in contacts %}
+                        <li> Name: {{ name }}, Phone: {{contacts[name]['phone']}}, Email: {{contacts[name]['email']}}
+                        <form action = "/delete" method = "POST">
+                            <input type = "hidden" name = "contact_name" value = "{{ name }}">
+                            <button type = "submit" > Delete </button>
+                        </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+        
+            <h2>Search</h2>
+                <form action = "/search" method = "POST">
+                    <input type = "text" name = "search_name" placeholder = "Name">
+                    <button type = "submit"> Search Contact </button>
+                    <p> {{resultMessage}} </p>
+                </form>
 
+        </body>
+    </html>
+</div>
