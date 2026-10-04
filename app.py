@@ -1,9 +1,16 @@
 from flask import Flask, render_template, request, redirect
+import json
 
 # To run the app, use the command: python3 app.py
+# lower() turns the string into lowercase, strip() removes whitespace from the beginning and end of the string
 
 app = Flask(__name__)
-contacts = {}
+
+try: 
+    with open ("contacts.json", "r") as file:
+        contacts = json.load(file)
+except FileNotFoundError:
+    contacts = {}
 
 @app.route('/')
 def home():
@@ -11,11 +18,12 @@ def home():
 
 @app.route("/add", methods = ["POST"])
 def add():
-    contactName = request.form["contact_name"]
-    contactPhone = request.form["contact_phone"]
-    contactEmail = request.form["contact_email"]
+    contactName = request.form["contact_name"].strip()
+    contactPhone = request.form["contact_phone"].strip()
+    contactEmail = request.form["contact_email"].strip()
 
     contacts[contactName] = {"phone": contactPhone, "email": contactEmail}
+    save_contacts()
 
     return redirect("/")
 
@@ -26,6 +34,7 @@ def delete():
     if contactName in contacts:
         del contacts[contactName]
     
+    save_contacts()
     return redirect("/")
 
 @app.route("/search", methods = ["POST"])
@@ -44,6 +53,10 @@ def search():
         resultMessage = (f"Contact Name: {matchedKey}, Phone: {contacts[matchedKey]['phone']}, Email: {contacts[matchedKey]['email']}")
     
     return render_template('index.html', contacts = contacts, resultMessage = resultMessage)
+
+def save_contacts():
+    with open("contacts.json", "w") as file:
+        json.dump(contacts, file)
             
 
 
